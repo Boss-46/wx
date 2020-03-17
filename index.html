@@ -4,14 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
 </head>
-<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js">
-</script>
 <body>
-    
 </body>
 <script>
-    //获取公众号权限
-    wx.miniProgram.navigateTo({url: "pages/token/token?code="+100});
+	  function getParameterByName(name, url) {
+		if(!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		//匹配所有符合条件的，并取最后一个
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)",'g');
+		var results = url.match(regex);
+		var tempResults= results!=null && results[results.length-1]!=undefined?results[results.length-1]:'';
+
+		var finalResults=regex.exec(tempResults);
+		if(!finalResults) return "";
+		if(!finalResults[2]) return '';
+		return decodeURIComponent(finalResults[2].replace(/\+/g, " "));
+	}
+	 if(getParameterByName('code')){
+	 	/**重新跳回小程序的方法*/
+			wx.miniProgram.redirectTo({url: '/pages/index/children/register/main?code=' + getParameterByName('code')})
+	  }else{
+		/**公众号授权方法*/
+		  var uri = window.location.href;
+		  window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2c9a6977692f1692&redirect_uri="+uri+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+	  }
+  </script>
 </script>
 </html>
