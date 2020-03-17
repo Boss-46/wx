@@ -24,11 +24,12 @@
 	 if(getParameterByName('code')){
 	 	/**重新跳回小程序的方法*/
 		alert(getParameterByName('code'));
-		wx.miniProgram.navigateTo({url: "/pages/index/index?code=" + getParameterByName('code')});
+		wx.miniProgram.navigateTo({url: "/pages/index/index?"});
+		alert("++++++++++++")
 	  }else{
 		/**公众号授权方法*/
 		var uri = window.location.href;
-		 alert(uri);
+		alert(uri);
 		window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa4dec186972ad538&redirect_uri="+uri+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 	  }
   </script>
