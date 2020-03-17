@@ -28,7 +28,6 @@
 		wx.miniProgram.navigateTo({url: "/pages/index/index?code=" + getParameterByName('code')});
 	  }else{
 		/**公众号授权方法*/
-		alert(window.location.href);
 		var uri = window.location.href;
 		window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa4dec186972ad538&redirect_uri="+uri+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 	  }
