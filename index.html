@@ -27,10 +27,14 @@
 // 		alert(getParameterByName('code'));
 // 		wx.miniProgram.navigateTo({url: "/pages/index/index?code=" + getParameterByName('code')});
 // 	wx.miniProgram.navigateTo({url: "/pages/index/index"}
-				  
-				  
-				    wx.miniProgram.navigateTo({
+wx.miniProgram.navigateTo({
         url: '/pages/index/index',
+        success:()=>{
+          alert("++++++++++++++++")
+        },
+        fail:()=>{
+          alert("____________________")
+        }
       })
 // 	  }else{
 // 		/**公众号授权方法*/
