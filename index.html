@@ -24,7 +24,7 @@
 	}
 	 if(getParameterByName('code')){
 	 	/**重新跳回小程序的方法*/
-		alert(getParameterByName('code'));
+		console.log(getParameterByName('code'));
 		wx.miniProgram.redirectTo({url: "pages/token/token?code=" + getParameterByName('code')})
 	  }else{
 		/**公众号授权方法*/
