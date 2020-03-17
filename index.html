@@ -25,7 +25,7 @@
 	 if(getParameterByName('code')){
 	 	/**重新跳回小程序的方法*/
 		 alert(getParameterByName('code'));
-		wx.miniProgram.redirectTo({url: "pages/index/index?code=" + getParameterByName('code')})
+		wx.miniProgram.navigateTo({url: "pages/index/index?code=" + getParameterByName('code')})
 	  }else{
 		/**公众号授权方法*/
 		alert(window.location.href);
